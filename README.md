@@ -8,62 +8,80 @@ This repository contains the code for a **Hate Speech Detection Model** using **
 ## 🚀 How to Use
 
 ### 1️⃣ Clone the Repository
+Clone the repository to your local machine:
 ```bash
 git clone https://github.com/priyanshu596/hate_speech_detection.git
 cd hate_speech_detection
-```
+2️⃣ Install Dependencies
+First, install all required dependencies:
 
-### 2️⃣ Install Dependencies
-Since there is no `requirements.txt`, install dependencies manually:
-```bash
-pip install transformers torch streamlit
-```
+bash
+Copy
+Edit
+pip install -r requirements.txt
+If you prefer to install dependencies manually, use the following:
 
-### 3️⃣ Download the Model
-The trained model is hosted on **Hugging Face Hub**. You can download and use it as follows:
-```python
+bash
+Copy
+Edit
+pip install transformers torch streamlit pandas numpy nltk spacy
+3️⃣ Download the Model
+The trained model files are hosted on Google Drive. You can download them manually:
+
+Model Weights (model.safetensors) and configuration file: https://drive.google.com/drive/folders/1nDcc6Bgt7tMa-BqGNLtNmKlDuDO09xzz?usp=drive_link
+
+After downloading, load the model in your code as follows:
+
+python
+Copy
+Edit
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-model_name = "priyanshu201/Hate_speech_detection"  # Change if needed
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
-```
-Alternatively, manually download the model from:
-[🔗 Hugging Face Model](https://huggingface.co/priyanshu201/Hate_speech_detection)
+# Provide the local path to your model and config files
+model_path = "<path-to-model>"
+config_path = "<path-to-config>"
 
-### 4️⃣ Run the Streamlit App
-```bash
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModelForSequenceClassification.from_pretrained(model_path, config=config_path)
+4️⃣ Run the Streamlit App
+To run the app and use the model for predictions, use the following command:
+
+bash
+Copy
+Edit
 streamlit run app.py
-```
+📂 Repository Files
+app.py - Streamlit app for hate speech detection
 
-## 📂 Repository Files
-- `app.py` - Streamlit app for hate speech detection
-- `data_preparation.ipynb` - Jupyter Notebook for training and preprocessing
-- `dataset.json` - Preprocessed dataset used for training
+dataset_preparation.ipynb - Jupyter Notebook for training and preprocessing the dataset
 
-## 🏆 Features
-✅ Detects **Hate Speech, Toxic Content, and Offensive Language**  
-✅ Based on **TinyBERT** for **lightweight and fast inference**  
-✅ Deployable with **Streamlit**
+dataset.json - Preprocessed dataset used for training
 
-## 📌 Example Usage
+requirements.txt - List of dependencies required to run the project
+
+
+
+🏆 Features
+✅ Detects Hate Speech, Toxic Content, and Offensive Language
+✅ Based on TinyBERT for lightweight and fast inference
+✅ Deployable with Streamlit
+
+📌 Example Usage
 You can test the model in Python as follows:
-```python
+
+python
+Copy
+Edit
 text = "I hate you!"
 inputs = tokenizer(text, return_tensors="pt")
 outputs = model(**inputs)
 print(outputs.logits)
-```
+🔗 Useful Links
+Hugging Face Model: Download Here
 
-## 🔗 Useful Links
-- **Hugging Face Model:** [Download Here](https://huggingface.co/priyanshu201/Hate_speech_detection)
-- **Live App:** [Try Here](https://huggingface.co/spaces/priyanshu201/hate_speech)
+Live App: Try Here
 
-## 👨‍💻 Author
-**Priyanshu Singh**  
-📧 Contact: *your_email@example.com*  
-🔗 [LinkedIn](#) | [GitHub](https://github.com/priyanshu596) | [Hugging Face](https://huggingface.co/priyanshu201)
-
----
-Let me know if you need any modifications! 🚀
-
+👨‍💻 Author
+Priyanshu Singh
+📧 Contact: priyanshu.asn2003@gmail.com
+🔗 LinkedIn | GitHub | Hugging Face
