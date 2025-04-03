@@ -4,18 +4,18 @@
 # 🛡️ Hate Speech Detection Model
 
 This repository contains the code for a **Hate Speech Detection Model** using **TinyBERT**. The model is trained to classify text into the following categories:
-- **Normal**
-- **Hate Speech**
-- **Offensive Language**
+Normal
+Hate Speech
+Offensive Language
 
 ## 🚀 How to Use
 
 ### 1️⃣ Clone the Repository
 Clone the repository to your local machine:
-```bash
+
 git clone https://github.com/priyanshu596/hate_speech_detection.git
 cd hate_speech_detection
-```
+
 
 ### 2️⃣ Install Dependencies
 First, install all required dependencies:
